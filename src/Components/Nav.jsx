@@ -1,7 +1,17 @@
+"use client"
+import { authClient } from '@/lib/auth-client';
+import {Avatar} from "@heroui/react";
 import Link from 'next/link';
 import React from 'react';
 
 const Nav = () => {
+
+const { 
+        data: session
+    } = authClient.useSession();
+
+    const user=session?.user;
+
     return (
       <nav className='flex items-center justify-between w-[90%] mx-auto '>
 
@@ -11,11 +21,15 @@ const Nav = () => {
     <Link href={'/'}>Home</Link>
     <Link href={'/all-facilities'}>All Facilities</Link>
     <Link href={'/'}>My Bookings</Link>
-    <Link href={'/'}>Add Facility</Link>
+    <Link href={'/add-facility'}>Add Facility</Link>
     <Link href={'/'}>Manage My Facilities</Link>
 </div>
 
 <Link href={'/login'}>Login</Link>
+{user &&  <Avatar>
+        <Avatar.Image alt={user?.name} src={user?.image} />
+        <Avatar.Fallback>JD</Avatar.Fallback>
+      </Avatar>}
       </nav>
     );
 };
