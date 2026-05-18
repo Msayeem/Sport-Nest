@@ -2,28 +2,47 @@
 import { authClient } from "@/lib/auth-client";
 import {Check} from "@gravity-ui/icons";
 import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
-import Link from "next/link";
 import React from 'react';
 
-const LoginPage = () => {
+const SignUpPage = () => {
 
 const onSubmit=async(e)=>{
-           e.preventDefault();
-       const formData = new FormData(e.currentTarget);
-       const user= Object.fromEntries(formData.entries());
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const user= Object.fromEntries(formData.entries())
 
-       const { data, error } = await authClient.signIn.email({
+const { data, error } = await authClient.signUp.email({
+     name: user.name,
+     image: user.image,
     email: user.email,
     password: user.password,
     rememberMe: true,
     callbackURL: "/",
 });
-
+  
 }
 
     return (
-        <div className="flex justify-center my-20 flex-col items-center">
-             <Form className="flex w-96 flex-col gap-4" onSubmit={onSubmit}>
+        <div>
+            <Form className="flex w-96 flex-col gap-4" onSubmit={onSubmit}>
+      <TextField
+        isRequired
+        name="name"
+        type="text"
+      >
+        <Label>Your name</Label>
+        <Input placeholder="Name" />
+        <FieldError />
+      </TextField>
+      <TextField
+        isRequired
+        name="image"
+        type="url"
+      >
+        <Label>User Image</Label>
+        <Input placeholder="Image Url"/>
+        <FieldError />
+      </TextField>
       <TextField
         isRequired
         name="email"
@@ -72,10 +91,8 @@ const onSubmit=async(e)=>{
         </Button>
       </div>
     </Form>
-
-    <p>Don't have an account? <span><Link href={'/signUp'}>Sign Up</Link></span></p>
         </div>
     );
 };
 
-export default LoginPage;
+export default SignUpPage;
