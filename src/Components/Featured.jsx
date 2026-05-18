@@ -13,7 +13,7 @@ const Featured = async () => {
 
             <div className='grid lg:grid-cols-3 md:grid-cols-2'>
                 {
-                    datas.map(data =>
+                    datas.slice(0, 6).map(data =>
                         <div key={data._id} className='border'>
                             <Image className='mx-auto' src={data.imageUrl} width={200} height={100} alt={data.facilityName}></Image>
                             <h1>{data.facilityName}</h1>

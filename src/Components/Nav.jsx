@@ -9,11 +9,13 @@ const Nav = () => {
 
 <div className='flex items-center gap-3'>
     <Link href={'/'}>Home</Link>
-    <Link href={'/'}>All Facilities</Link>
+    <Link href={'/all-facilities'}>All Facilities</Link>
     <Link href={'/'}>My Bookings</Link>
     <Link href={'/'}>Add Facility</Link>
     <Link href={'/'}>Manage My Facilities</Link>
 </div>
+
+<Link href={'/login'}>Login</Link>
       </nav>
     );
 };
