@@ -1,7 +1,25 @@
+"use client"
 import React from 'react';
 import {Button, Card, CloseButton} from "@heroui/react";
 
 const BookingCard = ({data}) => {
+
+const handleCancle=async()=>{
+
+  const id = typeof data._id === 'object' ? data._id.$oid : data._id;
+  
+  console.log('Sending ID:', id);
+const res=await fetch(`http://localhost:5000/bookings/${data._id}`, {
+  method:'DELETE',
+  headers:{
+    'content-type':'application/json'
+  }
+});
+
+const result=await res.json();
+
+}
+
     return (
         <div>
             
@@ -11,25 +29,18 @@ const BookingCard = ({data}) => {
           alt={data.facilityName}
           className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
           loading="lazy"
-          src={data?.imageUrl}
+          src={data.imageUrl}
         />
       </div>
       <div className="flex flex-1 flex-col gap-3">
         <Card.Header className="gap-1">
           <Card.Title className="pr-8">{data.facilityName}</Card.Title>
-          <Card.Description>
-            Lorem ipsum dolor sit amet consectetur. Sed arcu donec id aliquam dolor sed amet
-            faucibus etiam.
-          </Card.Description>
-          <CloseButton aria-label="Close banner" className="absolute top-3 right-3" />
+          <p>Booking Date: {data.bookingDate}</p>
+          <p>Time Slot: {data.timeSlot}</p>
+          <h1>Price: ${data.totalPrice}</h1>
+         
         </Card.Header>
-        <Card.Footer className="mt-auto flex w-full flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-col">
-            <span className="text-sm font-medium text-foreground">Only 10 spots</span>
-            <span className="text-xs text-muted">Submission ends Oct 10.</span>
-          </div>
-          <Button className="w-full sm:w-auto">Apply Now</Button>
-        </Card.Footer>
+        <button onClick={handleCancle}>Cancle</button>
       </div>
     </Card>
 

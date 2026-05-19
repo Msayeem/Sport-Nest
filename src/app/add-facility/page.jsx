@@ -32,7 +32,7 @@ onSubmit={onSubmit}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Destination Name */}
               <div className="md:col-span-2">
-                <TextField name="destinationName" isRequired>
+                <TextField name="FacilityName" isRequired>
                   <Label>Facility Name</Label>
                   <Input placeholder="Riverside Tennis Court" className="rounded-2xl" />
                   <FieldError />
@@ -111,6 +111,17 @@ onSubmit={onSubmit}
                 <FieldError />
               </TextField>
 
+              
+               <TextField name="bookingDate" type="date" isRequired>
+                <Label>Date</Label>
+                <Input
+                  type="date"
+                 
+                  className="rounded-2xl"
+                />
+                <FieldError />
+              </TextField>
+
                     {/* Duration */}
              
 
@@ -127,6 +138,8 @@ onSubmit={onSubmit}
                   />
                   <FieldError />
                 </TextField>
+
+              
               </div>
 
                <div>
