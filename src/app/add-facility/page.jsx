@@ -7,6 +7,20 @@ const AddFacility = () => {
 
 const onSubmit=async(e)=>{
 e.preventDefault();
+const formData=new FormData(e.currentTarget);
+const facility=Object.fromEntries(formData.entries());
+
+const res=await fetch('http://localhost:5000/facilities', {
+  method:'POST',
+  headers:{
+    'content-type':'application/json',
+   
+  },
+  body:JSON.stringify(facility)
+});
+
+const data=await res.json();
+
 }
 
     return (
@@ -20,7 +34,7 @@ onSubmit={onSubmit}
               <div className="md:col-span-2">
                 <TextField name="destinationName" isRequired>
                   <Label>Facility Name</Label>
-                  <Input placeholder="Bali Paradise" className="rounded-2xl" />
+                  <Input placeholder="Riverside Tennis Court" className="rounded-2xl" />
                   <FieldError />
                 </TextField>
               </div>
@@ -28,14 +42,14 @@ onSubmit={onSubmit}
               {/* Country */}
               <TextField name="country" isRequired>
                 <Label>Location</Label>
-                <Input placeholder="Indonesia" className="rounded-2xl" />
+                <Input placeholder="Texas" className="rounded-2xl" />
                 <FieldError />
               </TextField>
 
               {/* Category - Updated Select Component */}
               <div>
                 <Select
-                  name="type"
+                  name="sport"
                   isRequired
                   className="w-full"
                   placeholder="Select Type"
@@ -77,11 +91,11 @@ onSubmit={onSubmit}
               </div>
 
               {/* Price */}
-              <TextField name="price" type="number" isRequired>
+              <TextField name="totalPrice" type="number" isRequired>
                 <Label>Price/ hour (USD)</Label>
                 <Input
                   type="number"
-                  placeholder="1299"
+                  placeholder="45"
                   className="rounded-2xl"
                 />
                 <FieldError />
@@ -97,6 +111,9 @@ onSubmit={onSubmit}
                 <FieldError />
               </TextField>
 
+                    {/* Duration */}
+             
+
         
 
               {/* Image URL - Removed preview */}
@@ -105,7 +122,7 @@ onSubmit={onSubmit}
                   <Label>Image URL</Label>
                   <Input
                     type="url"
-                    placeholder="https://example.com/bali-paradise.jpg"
+                    placeholder="https://example.com/cricket-field.jpg"
                     className="rounded-2xl"
                   />
                   <FieldError />
@@ -198,7 +215,7 @@ onSubmit={onSubmit}
                 <TextField name="description" isRequired>
                   <Label>Description</Label>
                   <TextArea
-                    placeholder="Describe the travel experience..."
+                    placeholder="Describe your experience..."
                     className="rounded-3xl"
                   />
                   <FieldError />

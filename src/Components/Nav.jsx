@@ -20,7 +20,7 @@ const {
 <div className='flex items-center gap-3'>
     <Link href={'/'}>Home</Link>
     <Link href={'/all-facilities'}>All Facilities</Link>
-    <Link href={'/'}>My Bookings</Link>
+    <Link href={'/my-bookings'}>My Bookings</Link>
     <Link href={'/add-facility'}>Add Facility</Link>
     <Link href={'/'}>Manage My Facilities</Link>
 </div>
