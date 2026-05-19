@@ -22,7 +22,7 @@ const {
     <Link href={'/all-facilities'}>All Facilities</Link>
     <Link href={'/my-bookings'}>My Bookings</Link>
     <Link href={'/add-facility'}>Add Facility</Link>
-    <Link href={'/manage-facility'}>Manage My Facilities</Link>
+    <Link href={'/manage-facility'}>Manage Facilities</Link>
 </div>
 
 <Link href={'/login'}>Login</Link>
