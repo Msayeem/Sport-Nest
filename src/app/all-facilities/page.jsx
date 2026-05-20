@@ -1,4 +1,5 @@
 
+import Search from '@/Components/Search';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -11,6 +12,9 @@ const res = await fetch('http://localhost:5000/facilities');
     return (
    <div>
     <h1 className='text-2xl'>All Facilities</h1>
+    <div>
+        <Search></Search>
+    </div>
          <div>
             {
                 datas.map(data=>
