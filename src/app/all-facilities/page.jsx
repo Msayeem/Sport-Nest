@@ -4,9 +4,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const AllFacilitiesPage = async() => {
+const AllFacilitiesPage = async({searchParams}) => {
 
-const res = await fetch('http://localhost:5000/facilities');
+    const {search, sport}=await searchParams;
+
+      const params = new URLSearchParams();
+  if (search) params.set('search', search);
+  if (sport) params.set('sport', sport);
+
+const res = await fetch(`http://localhost:5000/facilities?${params.toString()}`);
     const datas = await res.json();
 
     return (
