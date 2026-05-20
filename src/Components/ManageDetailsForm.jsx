@@ -61,27 +61,32 @@ onSubmit={onSubmit}
                   </Select.Trigger>
                   <Select.Popover>
                     <ListBox>
-                      <ListBox.Item id="Beach" textValue="Beach">
+                      <ListBox.Item id="Tennis" textValue="Tennis">
                         Tennis
                         <ListBox.ItemIndicator />
                       </ListBox.Item>
-                      <ListBox.Item id="Mountain" textValue="Mountain">
+                      <ListBox.Item id="Basketball" textValue="Basketball">
                         Basketball
                         <ListBox.ItemIndicator />
                       </ListBox.Item>
-                      <ListBox.Item id="City" textValue="City">
+                      <ListBox.Item id="Badminton" textValue="Badminton">
+              
                         Badminton
                         <ListBox.ItemIndicator />
                       </ListBox.Item>
-                      <ListBox.Item id="Adventure" textValue="Adventure">
+                      <ListBox.Item id="Volleyball" textValue="Volleyball">
                         Volleyball
                         <ListBox.ItemIndicator />
                       </ListBox.Item>
-                      <ListBox.Item id="Cultural" textValue="Cultural">
+                      <ListBox.Item id="Cricket" textValue="Cricket">
                         Cricket
                         <ListBox.ItemIndicator />
                       </ListBox.Item>
-                      <ListBox.Item id="Luxury" textValue="Luxury">
+                      <ListBox.Item id="Football" textValue="Football">
+                        Football
+                        <ListBox.ItemIndicator />
+                      </ListBox.Item>
+                      <ListBox.Item id="Swimming" textValue="Swimming">
                         Swimming
                         <ListBox.ItemIndicator />
                       </ListBox.Item>

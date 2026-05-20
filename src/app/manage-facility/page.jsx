@@ -1,8 +1,8 @@
-import DelUp from '@/Components/DelUp';
 import Image from 'next/image';
 import Link from 'next/link';
 import {Button, Card, CloseButton} from "@heroui/react";
 import React from 'react';
+import DeleteBtn from '@/Components/DeleteBtn';
 
 const ManageFacility = async() => {
     const res = await fetch('http://localhost:5000/facilities');
@@ -32,6 +32,7 @@ const ManageFacility = async() => {
                      <Card.Footer className="mt-auto flex w-full flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
           
          <Link href={`/manage-facility/${data._id}`}>Edit</Link>
+        <DeleteBtn data={data}></DeleteBtn>
         </Card.Footer>
                   </div>
                 </Card>
