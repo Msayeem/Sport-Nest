@@ -5,6 +5,9 @@ import React from 'react';
 
 const AddFacility = () => {
 
+    const { data: session } = authClient.useSession();
+  const user = session?.user;
+
 const onSubmit=async(e)=>{
 e.preventDefault();
 const formData=new FormData(e.currentTarget);
@@ -121,6 +124,18 @@ onSubmit={onSubmit}
                 />
                 <FieldError />
               </TextField>
+
+          <TextField
+  key={user?.email}          // forces re-mount once email is available
+  defaultValue={user?.email ?? ''}
+  name="email"
+  type="email"
+  isRequired
+>
+  <Label>Email</Label>
+  <Input type="email" className="rounded-2xl" />
+  <FieldError />
+</TextField>
 
                     {/* Duration */}
              

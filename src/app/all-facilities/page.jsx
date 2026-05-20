@@ -32,6 +32,8 @@ const res = await fetch(`http://localhost:5000/facilities?${params.toString()}`)
                         </div>
                 )
             }
+
+            
         </div>
    </div>
     );
