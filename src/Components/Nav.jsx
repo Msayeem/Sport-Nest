@@ -3,6 +3,7 @@ import { authClient } from '@/lib/auth-client';
 import {Avatar} from "@heroui/react";
 import Link from 'next/link';
 import React from 'react';
+import UserSetting from './UserSetting';
 
 const Nav = () => {
 
@@ -25,11 +26,8 @@ const {
     <Link href={'/manage-facility'}>Manage Facilities</Link>
 </div>
 
-<Link href={'/login'}>Login</Link>
-{user &&  <Avatar>
-        <Avatar.Image alt={user?.name} src={user?.image} />
-        <Avatar.Fallback>JD</Avatar.Fallback>
-      </Avatar>}
+
+{user ?  <UserSetting></UserSetting>: <Link href={'/login'}>Login</Link>}
       </nav>
     );
 };
