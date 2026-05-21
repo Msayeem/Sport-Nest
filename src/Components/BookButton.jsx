@@ -71,7 +71,7 @@ const BookButton = ({ bookingData }) => {
 
           <div className="md:col-span-2">
 
-            <TextField defaultValue={bookingData?.facilityName} name="FacilityName" isRequired>
+            <TextField defaultValue={bookingData?.facilityName} name="facilityName" isRequired>
 
               <Label>Facility Name</Label>
 

@@ -58,7 +58,7 @@ const ManageFacility = async() => {
 
                     <Card.Header className="gap-1">
 
-                      <Card.Title className="pr-8 font-semibold text-[18px]">{data.facilityName}</Card.Title>
+                      <Card.Title className="pr-8 font-semibold text-[18px]">{data?.facilityName}</Card.Title>
 
                       <p>Booking Date : <span className='font-medium'>{data.bookingDate}</span></p>
 
