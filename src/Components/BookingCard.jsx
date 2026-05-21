@@ -4,6 +4,7 @@ import { Card } from "@heroui/react";
 import { useRouter } from 'next/navigation';
 import { CalendarDays, Clock, DollarSign, XCircle, Trash2 } from 'lucide-react'; // Elegant status icons
 import { toast } from 'react-toastify';
+import { authClient } from '@/lib/auth-client';
 
 const BookingCard = ({ data, token }) => {
     const router = useRouter();
@@ -11,14 +12,13 @@ const BookingCard = ({ data, token }) => {
 
     const handleCancel = async () => {
     
-        
         setIsCancelling(true);
         try {
-            const res = await fetch(`${process.env.SERVER_URL}/bookings/${data._id}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings/${data._id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json',
-                    'authorization': `Bearer ${token}`
+                    'authorization': `${process.env.NEXT_PUBLIC_API_SECRET}`
                 }
             });
 

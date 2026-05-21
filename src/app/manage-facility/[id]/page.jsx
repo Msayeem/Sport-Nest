@@ -12,9 +12,9 @@ const {id}=await params;
   });
   const token = session?.token;
 
-const res=await fetch(`${process.env.SERVER_URL}/facilities/${id}`, {
+const res=await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities/${id}`, {
     headers: {
-      'authorization': `Bearer ${token}` 
+      'authorization': `${process.env.NEXT_PUBLIC_API_SECRET}` 
     }
 });
 const data=await res.json();

@@ -14,7 +14,7 @@ e.preventDefault();
 const formData=new FormData(e.currentTarget);
 const updated=Object.fromEntries(formData.entries());
 
-const res=await fetch(`${process.env.SERVER_URL}/facilities/${data._id}`,{
+const res=await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities/${data._id}`,{
   method:'PATCH',
   headers:{
      'content-type':'application/json'

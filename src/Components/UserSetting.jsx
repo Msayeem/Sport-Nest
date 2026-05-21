@@ -9,13 +9,16 @@ const UserSetting = () => {
   const user = session?.user;
   const router = useRouter();
 
+   console.log('User:', user);        // ✅ check browser console
+  console.log('Image:', user?.image); 
+
   return (
     <div>
       <Dropdown>
         <Dropdown.Trigger className="rounded-full">
           <Avatar>
             <Avatar.Image alt={user?.name} src={user?.image} />
-            <Avatar.Fallback delayMs={600}>JD</Avatar.Fallback>
+            <Avatar.Fallback >{user?.name?.charAt(0)}</Avatar.Fallback>
           </Avatar>
         </Dropdown.Trigger>
         <Dropdown.Popover>

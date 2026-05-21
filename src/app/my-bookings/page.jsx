@@ -6,13 +6,10 @@ import { CalendarDays, Trophy } from 'lucide-react'; // Clean modern sport icons
 
 const MyBookingsPage = async() => {
 
-    const {token} = await auth.api.getSession({
-        headers: await headers()
-    });
 
-    const res = await fetch(`${process.env.SERVER_URL}/bookings`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings`, {
         headers:{
-            'authorization': `Bearer ${token}`  
+            'authorization': `${process.env.NEXT_PUBLIC_API_SECRET}`  
         }
     });
     

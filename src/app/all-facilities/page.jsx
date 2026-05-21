@@ -12,7 +12,7 @@ const AllFacilitiesPage = async ({ searchParams }) => {
 
     let datas = [];
     try {
-        const res = await fetch(`${process.env.SERVER_URL}/facilities?${params.toString()}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities?${params.toString()}`, {
             cache: 'no-store' // Ensures fresh data shifts when searching or filtering
         });
         if (res.ok) {

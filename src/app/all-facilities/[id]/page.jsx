@@ -8,8 +8,12 @@ import { Clock, DollarSign, Dumbbell, MapPin, ShieldCheck, Activity, CalendarDay
 const FacilitiesDetailPage = async ({ params }) => {
     const { id } = await params;
 
-    // Fetch facility data from your API
-    const res = await fetch(`${process.env.SERVER_URL}/facilities/${id}`, { cache: 'no-store' });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities/${id}`, {
+        headers:{
+            authorization: `${process.env.NEXT_PUBLIC_API_SECRET}`
+        }
+        
+    });
     const data = await res.json();
 
     return (
@@ -40,10 +44,10 @@ const FacilitiesDetailPage = async ({ params }) => {
                         <div className="relative h-[300px] sm:h-[400px] w-full overflow-hidden rounded-2xl bg-slate-200 border border-slate-100 shadow-sm">
                             <Image 
                                 className="h-full w-full object-cover object-center"
-                                src={data.imageUrl} 
+                                src={data?.imageUrl} 
                                 fill
                                 sizes="(max-w-1024px) 100vw, 66vw"
-                                alt={data.facilityName}
+                                alt={data?.facilityName}
                                 priority
                             />
                         </div>
@@ -56,7 +60,7 @@ const FacilitiesDetailPage = async ({ params }) => {
                                 </div>
                                 <div>
                                     <span className="text-xs font-medium text-slate-400 block uppercase tracking-wider">Available Slots</span>
-                                    <p className="font-bold text-slate-800 text-sm mt-0.5">{data.timeSlot}</p>
+                                    <p className="font-bold text-slate-800 text-sm mt-0.5">{data?.timeSlot}</p>
                                 </div>
                             </div>
 
@@ -66,7 +70,7 @@ const FacilitiesDetailPage = async ({ params }) => {
                                 </div>
                                 <div>
                                     <span className="text-xs font-medium text-slate-400 block uppercase tracking-wider">Session Length</span>
-                                    <p className="font-bold text-slate-800 text-sm mt-0.5">{data.hours} Hours / booking</p>
+                                    <p className="font-bold text-slate-800 text-sm mt-0.5">{data?.hours} Hours / booking</p>
                                 </div>
                             </div>
                         </div>
@@ -91,11 +95,10 @@ const FacilitiesDetailPage = async ({ params }) => {
                         
                         {/* Hero Pricing Display */}
                         <div className="flex items-baseline gap-1 text-slate-900 border-b border-slate-100 pb-5 mb-5">
-                            <span className="text-4xl font-black tracking-tight text-green-600">${data.totalPrice}</span>
+                            <span className="text-4xl font-black tracking-tight text-green-600">${data?.totalPrice}</span>
                             <span className="text-sm font-medium text-slate-400">/ per Hour</span>
                         </div>
 
-                        {/* Premium Verification Accent Block */}
                         <div className="flex items-center gap-2.5 rounded-xl bg-slate-50 p-3.5 mb-6 text-xs text-slate-600 border border-slate-100">
                             <ShieldCheck className="h-4 w-4 text-green-600 shrink-0" />
                             <span>Instant scheduling confirmation handled securely by SportNest portal layers.</span>

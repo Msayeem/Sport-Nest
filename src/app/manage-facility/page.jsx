@@ -18,27 +18,7 @@ const ManageFacility = async() => {
 
 
 
- const session = await auth.api.getSession({
-
-    headers: await headers()
-
-  });
-
-
-
-  const token = session?.token;
-
-
-
-    const res = await fetch(`${process.env.SERVER_URL}/facilities`, {
-
-      headers:{
-
-         'authorization': `Bearer ${token}`
-
-      }
-
-    });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities`);
 
     const datas = await res.json();
 

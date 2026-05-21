@@ -33,11 +33,7 @@ const facility=Object.fromEntries(formData.entries());
 
 
 
-const {data:tokenData}=await authClient.token();
-
-
-
-const res=await fetch(`${process.env.SERVER_URL}/facilities`, {
+const res=await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities`, {
 
   method:'POST',
 
@@ -45,7 +41,7 @@ const res=await fetch(`${process.env.SERVER_URL}/facilities`, {
 
     'content-type':'application/json',
 
-    authorization:`Bearer ${tokenData?.token}`
+    authorization:`${process.env.NEXT_PUBLIC_API_SECRET}`
 
   },
 

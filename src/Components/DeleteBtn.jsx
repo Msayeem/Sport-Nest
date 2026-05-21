@@ -9,10 +9,11 @@ const DeleteBtn = ({data}) => {
   const router=useRouter();
 
 const handleDelete=async()=>{
-    const res=await fetch(`${process.env.SERVER_URL}/facilities/${data._id}`, {
+    const res=await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities/${data._id}`, {
         method:'DELETE',
         headers:{
-             'content-type':'application/json'
+             'content-type':'application/json',
+              'authorization': `${process.env.NEXT_PUBLIC_API_SECRET}` 
         }
     });
 
