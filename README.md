@@ -1,36 +1,141 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏟️ Sport-Nest
 
-## Getting Started
+**Sport-Nest** is a full-stack sports facility booking platform where users can discover, book, and manage sports venues — and facility owners can list and manage their own facilities.
 
-First, run the development server:
+---
+
+## 🌐 Live Demo
+
+> [https://sport-nest-blue.vercel.app/]
+
+---
+
+
+## ✨ Features
+
+- 🔍 **Browse Facilities** — Anyone can explore all available sports facilities without logging in.
+- 📅 **Book a Facility** — Authenticated users can book their preferred facility with ease.
+- ➕ **Add & Manage Facilities** — Logged-in users can list their own sports facilities and keep them up to date.
+- 🗂️ **View & Cancel Bookings** — Users can review their upcoming bookings and cancel if needed.
+- ✏️ **Owner Controls** — Facility owners can update details or remove their listed facilities.
+- 🗄️ **Persistent Data** — All booking and facility data is securely stored and managed in the database.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Frontend** | [Next.js](https://nextjs.org/) |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/), [HeroUI](https://www.heroui.com/) |
+| **Backend** | [Node.js](https://nodejs.org/), [Express.js](https://expressjs.com/) |
+| **Database** | [MongoDB](https://www.mongodb.com/) |
+| **Authentication** | [BetterAuth](https://www.better-auth.com/) |
+
+---
+
+## 📁 Project Structure
+
+```
+Sport-Nest/
+├── client/          # Next.js frontend
+│   ├── app/
+│   ├── components/
+│   └── ...
+├── server/          # Express.js backend
+│   ├── routes/
+│   ├── models/
+│   ├── controllers/
+│   └── ...
+└── README.md
+```
+
+> Adjust paths above to match your actual directory structure if different.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [MongoDB](https://www.mongodb.com/) (local instance or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
+- [Git](https://git-scm.com/)
+
+---
+
+### Installation
+
+#### 1. Clone the repository
+
+```bash
+git clone https://github.com/Msayeem/Sport-Nest.git
+cd Sport-Nest
+```
+
+#### 2. Set up the Backend (Server)
+
+```bash
+cd server
+npm install
+```
+
+Create a `.env` file inside the `server/` directory:
+
+```env
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+BETTER_AUTH_SECRET=your_betterauth_secret
+BETTER_AUTH_URL=http://localhost:5000
+```
+
+Start the backend server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The server will be running at `http://localhost:5000`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### 3. Set up the Frontend (Client)
 
-## Learn More
+```bash
+cd ../client
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env.local` file inside the `client/` directory:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000
+BETTER_AUTH_URL=http://localhost:5000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Start the frontend development server:
 
-## Deploy on Vercel
+```bash
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The app will be running at `http://localhost:3000`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### Running Both Simultaneously
+
+You can open two terminals and run the backend and frontend concurrently, or use a tool like [concurrently](https://www.npmjs.com/package/concurrently) from the root:
+
+```bash
+# From root directory (if configured)
+npm run dev
+```
+
+---
+
+
+

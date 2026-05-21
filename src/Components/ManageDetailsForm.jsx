@@ -17,7 +17,8 @@ const updated=Object.fromEntries(formData.entries());
 const res=await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities/${data._id}`,{
   method:'PATCH',
   headers:{
-     'content-type':'application/json'
+     'content-type':'application/json',
+     authorization: `${process.env.NEXT_PUBLIC_API_SECRET}`
   },
   body:JSON.stringify(updated)
 });
