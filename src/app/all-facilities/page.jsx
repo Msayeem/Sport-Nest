@@ -1,41 +1,52 @@
-
+import FacilitiesGridClient from '@/Components/FacilitiesGridClient';
 import Search from '@/Components/Search';
-import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 
-const AllFacilitiesPage = async({searchParams}) => {
 
-    const {search, sport}=await searchParams;
+const AllFacilitiesPage = async ({ searchParams }) => {
+    const { search, sport } = await searchParams;
 
-      const params = new URLSearchParams();
-  if (search) params.set('search', search);
-  if (sport) params.set('sport', sport);
+    const params = new URLSearchParams();
+    if (search) params.set('search', search);
+    if (sport) params.set('sport', sport);
 
-const res = await fetch(`http://localhost:5000/facilities?${params.toString()}`);
-    const datas = await res.json();
+    let datas = [];
+    try {
+        const res = await fetch(`http://localhost:5000/facilities?${params.toString()}`, {
+            cache: 'no-store' // Ensures fresh data shifts when searching or filtering
+        });
+        if (res.ok) {
+            datas = await res.json();
+        }
+    } catch (error) {
+        console.error("Error fetching facilities:", error);
+    }
 
     return (
-   <div>
-    <h1 className='text-2xl'>All Facilities</h1>
-    <div>
-        <Search></Search>
-    </div>
-         <div>
-            {
-                datas.map(data=>
-                    <div key={data._id} className='border'>
-                            <Image className='mx-auto' src={data.imageUrl} width={200} height={100} alt={data.facilityName}></Image>
-                            <h1>{data.facilityName}</h1>
-                            <p>Sport: {data.sport}</p>
-                            <Link href={`/all-facilities/${data._id}`}>Book Now</Link>
-                        </div>
-                )
-            }
+        <div className="min-h-screen bg-slate-50/50 py-12">
+            <div className="mx-auto w-[90%] max-w-7xl space-y-10">
+                
+                {/* Modernized Header Block */}
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-b border-slate-100 pb-8">
+                    <div>
+                        <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                            All <span className="text-green-600">Facilities</span>
+                        </h1>
+                        <p className="mt-2 text-sm text-slate-500">
+                            Discover and instant-book premier arenas, courts, and fields near you.
+                        </p>
+                    </div>
+                    {/* Wrapped search cleanly for better positioning */}
+                    <div className="w-full md:w-80 shrink-0">
+                        <Search />
+                    </div>
+                </div>
 
-            
+                {/* Animated Client Grid Container */}
+                <FacilitiesGridClient facilities={datas} />
+                
+            </div>
         </div>
-   </div>
     );
 };
 

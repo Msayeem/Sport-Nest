@@ -1,8 +1,12 @@
 "use client"
 import { Button, FieldError, Input, Label, ListBox, TextArea, TextField, Select} from '@heroui/react';
+import { useRouter } from 'next/navigation';
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const ManageDetailsForm = ({data}) => {
+
+  const router=useRouter();
 
 
 const onSubmit=async(e)=>{
@@ -18,12 +22,17 @@ const res=await fetch(`http://localhost:5000/facilities/${data._id}`,{
   body:JSON.stringify(updated)
 });
 
-const result=await res.json()
+const result=await res.json();
+toast.success('Facility Edited Successfully!')
+router.push('/manage-facility');
+
 }
 
     return (
         <div>
-            <h1>Edit Facility</h1>
+             <h1 className="ml-10 mt-5 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+                            Edit <span className="text-green-600">Facilities</span>
+                        </h1>
             <form
 onSubmit={onSubmit}
             className="p-10 space-y-8"
@@ -31,7 +40,7 @@ onSubmit={onSubmit}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Destination Name */}
               <div className="md:col-span-2">
-                <TextField defaultValue={data?.facilityName}  name="FacilityName" isRequired>
+                <TextField defaultValue={data?.facilityName}  name="facilityName" isRequired>
                   <Label>Facility Name</Label>
                   <Input  placeholder="Riverside Tennis Court" className="rounded-2xl" />
                   <FieldError />

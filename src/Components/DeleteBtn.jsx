@@ -1,8 +1,12 @@
 "use client";
 import {AlertDialog, Button} from "@heroui/react";
+import { useRouter } from "next/navigation";
 import React from 'react';
+import { toast } from "react-toastify";
 
 const DeleteBtn = ({data}) => {
+
+  const router=useRouter();
 
 const handleDelete=async()=>{
     const res=await fetch(`http://localhost:5000/facilities/${data._id}`, {
@@ -13,6 +17,8 @@ const handleDelete=async()=>{
     });
 
     const result=await res.json();
+    toast.warning('Facility deleted.');
+    router.refresh()
 }
 
     return (

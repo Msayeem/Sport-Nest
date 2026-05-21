@@ -2,6 +2,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Nav from "@/Components/Nav";
 import { ToastContainer } from "react-toastify";
+import Footer from "@/Components/Footer";
 
 const montserrat = Montserrat({
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
          {children}
          <ToastContainer></ToastContainer>
        </main>
+       <Footer></Footer>
         </body>
     </html>
   );
