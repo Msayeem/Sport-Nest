@@ -5,7 +5,9 @@ import { ArrowRight } from 'lucide-react'; // Make sure lucide-react is still in
 
 const Featured = async () => {
     // In production, consider adding error handling or try/catch around this fetch
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities`,{
+        cache:"no-store"
+    });
     const datas = await res.json();
 
     return (

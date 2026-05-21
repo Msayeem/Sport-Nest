@@ -10,7 +10,8 @@ const MyBookingsPage = async() => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings`, {
         headers:{
             'authorization': `${process.env.NEXT_PUBLIC_API_SECRET}`  
-        }
+        },
+        cache:"no-store"
     });
     
     console.log(res.status)
