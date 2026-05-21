@@ -12,7 +12,7 @@ const {id}=await params;
   });
   const token = session?.token;
 
-const res=await fetch(`http://localhost:5000/facilities/${id}`, {
+const res=await fetch(`${process.env.SERVER_URL}/facilities/${id}`, {
     headers: {
       'authorization': `Bearer ${token}` 
     }

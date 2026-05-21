@@ -3,9 +3,13 @@ import React from 'react';
 
 const notFoundPage = () => {
     return (
-        <div>
-            <Link href={'/'}>Go Home</Link>
+       <div className='flex justify-center items-center h-screen'>
+         <div className='text-2xl text-center'>
+            <h1>404 <br /> Page not Found!</h1>
+            <br />
+            <Link className='font-semibold bg-green-600 text-white px-8 py-3 rounded-2xl' href={'/'}>Go Home</Link>
         </div>
+       </div>
     );
 };
 

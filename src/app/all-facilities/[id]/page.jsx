@@ -9,7 +9,7 @@ const FacilitiesDetailPage = async ({ params }) => {
     const { id } = await params;
 
     // Fetch facility data from your API
-    const res = await fetch(`http://localhost:5000/facilities/${id}`, { cache: 'no-store' });
+    const res = await fetch(`${process.env.SERVER_URL}/facilities/${id}`, { cache: 'no-store' });
     const data = await res.json();
 
     return (

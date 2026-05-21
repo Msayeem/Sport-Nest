@@ -37,7 +37,7 @@ const {data:tokenData}=await authClient.token();
 
 
 
-const res=await fetch('http://localhost:5000/facilities', {
+const res=await fetch(`${process.env.SERVER_URL}/facilities`, {
 
   method:'POST',
 

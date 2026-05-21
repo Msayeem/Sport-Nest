@@ -10,7 +10,7 @@ const MyBookingsPage = async() => {
         headers: await headers()
     });
 
-    const res = await fetch(`http://localhost:5000/bookings`, {
+    const res = await fetch(`${process.env.SERVER_URL}/bookings`, {
         headers:{
             'authorization': `Bearer ${token}`  
         }
@@ -38,7 +38,7 @@ const MyBookingsPage = async() => {
                     {/* Quick Stat Counter Badge */}
                     <div className="inline-flex items-center gap-2 self-start sm:self-auto rounded-xl bg-green-50 border border-green-100 px-4 py-2.5 text-sm font-bold text-green-700 shadow-2xs">
                         <CalendarDays className="h-4 w-4" />
-                        <span>{datas.length} Active {datas.length === 1 ? 'Session' : 'Sessions'}</span>
+                        <span>{datas.length} {datas.length === 1 ? 'Session' : 'Sessions'}</span>
                     </div>
                 </div>
 

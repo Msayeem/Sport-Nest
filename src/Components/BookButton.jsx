@@ -26,7 +26,7 @@ const book=Object.fromEntries(formData.entries());
 
 
 
-    const res = await fetch('http://localhost:5000/bookings', {
+    const res = await fetch(`${process.env.SERVER_URL}/bookings`, {
 
         method: 'POST',
         headers: {

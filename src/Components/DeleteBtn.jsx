@@ -9,7 +9,7 @@ const DeleteBtn = ({data}) => {
   const router=useRouter();
 
 const handleDelete=async()=>{
-    const res=await fetch(`http://localhost:5000/facilities/${data._id}`, {
+    const res=await fetch(`${process.env.SERVER_URL}/facilities/${data._id}`, {
         method:'DELETE',
         headers:{
              'content-type':'application/json'

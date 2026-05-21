@@ -14,7 +14,7 @@ const BookingCard = ({ data, token }) => {
         
         setIsCancelling(true);
         try {
-            const res = await fetch(`http://localhost:5000/bookings/${data._id}`, {
+            const res = await fetch(`${process.env.SERVER_URL}/bookings/${data._id}`, {
                 method: 'DELETE',
                 headers: {
                     'content-type': 'application/json',
