@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
+
 const notFoundPage = () => {
     return (
        <div className='flex justify-center items-center h-screen'>
