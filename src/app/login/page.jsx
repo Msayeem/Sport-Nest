@@ -4,6 +4,7 @@ import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import Link from "next/link";
 import React from 'react';
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
 
@@ -18,6 +19,13 @@ const LoginPage = () => {
       rememberMe: true,
       callbackURL: "/",
     });
+
+    if(error){
+      toast.error('Login failed')
+    }
+    else{
+      toast.success('Login successful')
+    }
   };
 
   const handleGoogle = async () => {
@@ -102,7 +110,7 @@ const LoginPage = () => {
               className="w-full h-11 bg-green-600 text-white font-medium rounded-xl flex items-center justify-center gap-2 transition-colors shadow-sm"
             >
               <Check className="w-4 h-4" />
-              Sign In
+              Login
             </Button>
             
             {/* Kept the reset button but styled it softly so it doesn't compete with the main submit */}
