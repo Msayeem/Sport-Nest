@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import {Button, Card, CloseButton} from "@heroui/react";
-
 import React from 'react';
 
 import DeleteBtn from '@/Components/DeleteBtn';
