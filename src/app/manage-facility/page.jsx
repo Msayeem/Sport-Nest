@@ -59,8 +59,7 @@ const ManageFacility = async() => {
                       <p>Time Slot : <span className='font-medium'>{data.timeSlot}</span></p>
 
                       <h1>Price : <span className='font-medium'>${data.totalPrice}</span></h1>
-
-                     
+                   
 
                     </Card.Header>
 
