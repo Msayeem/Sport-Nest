@@ -64,8 +64,7 @@ const ManageFacility = async() => {
                     </Card.Header>
 
                      <Card.Footer className="mt-auto flex w-full flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
-
-         
+       
 
          <Link className='bg-black text-white px-5 py-1.5 rounded-3xl' href={`/manage-facility/${data._id}`}>Edit</Link>
 
