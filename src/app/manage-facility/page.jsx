@@ -89,5 +89,4 @@ const ManageFacility = async() => {
 };
 
 
-
 export default ManageFacility;
