@@ -7,11 +7,8 @@ import {Button, Card, CloseButton} from "@heroui/react";
 import React from 'react';
 
 import DeleteBtn from '@/Components/DeleteBtn';
-
 import { auth } from '@/lib/auth';
-
 import { headers } from 'next/headers';
-
 
 
 const ManageFacility = async() => {
