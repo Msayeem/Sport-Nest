@@ -10,7 +10,6 @@ import { headers } from 'next/headers';
 const ManageFacility = async() => {
 
 
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities`,{
       cache:"no-store"
     });
